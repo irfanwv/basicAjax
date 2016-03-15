@@ -1,0 +1,45 @@
+<html>
+    <head>
+       <title>Login Form</title>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+       <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){  
+                var uname = document.getElementById('username').value;
+                var pass = document.getElementById('password').value;
+                var param = {username: uname, password:pass};
+                $.ajax({
+                url: "ajax.php",
+                type: "post",
+                data: param ,
+                success: function (response) {
+                 
+                  alert(response);
+                }
+            });
+            });
+        });
+       </script>
+    </head>
+    <body>
+        <form action="" method="post">
+            <table >
+                <tr>
+                    <td>Tag:</td>
+                    <td><input type="text" name="tag" value="login"/></td>
+                </tr>
+                 <tr>
+                    <td>Email Id:</td>
+                    <td><input type="text" name="username" id="username"/></td>
+                </tr>
+                 <tr>
+                    <td>Password:</td>
+                    <td><input type="text" name="password" id="password"/></td>
+                </tr> 
+                <tr>
+                    <td><input type="button" name="submit" value="Login" id="btn" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
